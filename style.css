@@ -18,7 +18,7 @@ body{
 right: 0;
     width:120vh;
     height: 40vh;
-
+display: flex;
     
     border-top-left-radius: 20px;
     border-bottom-left-radius:20px;
@@ -34,6 +34,9 @@ right: 0;
     display: grid;
     grid-template-columns: 50px 50px;
     grid-template-rows: 50px 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 input { 
     visibility: hidden;
@@ -47,16 +50,47 @@ input:after {
     display: inline-block;
         visibility: visible;
         /* border: 2px solid white; */
-    
+
+        animation-name: up;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        
+        transform: rotatex(180deg);
+        transform-origin: top;
+}
+input:after:nth-of-type(0){
+  
 }
 
 input:checked::after{
-    animation-name: up;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
+  
 }
 
 @keyframes up {
-    0% {height: 20px;}
-    50% {height: 60px;}
+    0% {height: 60px;}
+    50% {height: 120px;}
 }
+
+@keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 50px 50px;
+    }
+  }
+
+
+  .testContainer{
+      position: relative;
+
+  }
+
+  .test {
+    width: 100px;
+    height: 100px;
+    background-color: greenyellow;
+    margin: 30px;
+    transform: rotatex(180deg) translate3d(0, -200px,0);/* the Y-Value shall be higher than the height on hover*/
+    transform-origin: top;
+  }
